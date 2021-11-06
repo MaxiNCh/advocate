@@ -8,35 +8,44 @@
 
 // === Standard layout & styling
 
-@mixin box-sizing($value){
+@mixin box-sizing($value) {
   -webkit-box-sizing: $value;
   -moz-box-sizing: $value;
   box-sizing: $value;
 }
-@mixin box-shadow($value){
+@mixin box-shadow($value) {
   -webkit-box-shadow: $value;
   -moz-box-shadow: $value;
   box-shadow: $value;
 }
-@mixin border-radius($value){
+@mixin border-radius($value) {
   -moz-border-radius: $value;
   -webkit--radius: $value;
   border-radius: $value;
 }
-@mixin background-size($value){
+@mixin background-size($value) {
   -o-background-size: $value;
   -webkit-background-size: $value;
   -moz-background-size: $value;
   background-size: $value;
 }
-@mixin linear-gradient($angle,$gradient1, $gradient2) {
+@mixin linear-gradient($angle, $gradient1, $gradient2) {
   background-color: $gradient2; /* Fallback Color */
-  background-image: -webkit-gradient(linear, $angle, from($gradient1), to($gradient2)); /* Saf4+, Chrome */
-  background-image: -webkit-linear-gradient($angle, $gradient1, $gradient2); /* Chrome 10+, Saf5.1+, iOS 5+ */
-  background-image:    -moz-linear-gradient($angle, $gradient1, $gradient2); /* FF3.6 */
-  background-image:     -ms-linear-gradient($angle, $gradient1, $gradient2); /* IE10 */
-  background-image:      -o-linear-gradient($angle, $gradient1, $gradient2); /* Opera 11.10+ */
-  background-image:         linear-gradient($angle, $gradient1, $gradient2);
+  background-image: -webkit-gradient(
+    linear,
+    $angle,
+    from($gradient1),
+    to($gradient2)
+  ); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(
+    $angle,
+    $gradient1,
+    $gradient2
+  ); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient($angle, $gradient1, $gradient2); /* FF3.6 */
+  background-image: -ms-linear-gradient($angle, $gradient1, $gradient2); /* IE10 */
+  background-image: -o-linear-gradient($angle, $gradient1, $gradient2); /* Opera 11.10+ */
+  background-image: linear-gradient($angle, $gradient1, $gradient2);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=$angle,StartColorStr='#{$gradient1}', EndColorStr='#{$gradient2}');
 }
 
@@ -52,19 +61,19 @@
   -webkit-transform: $value;
   transform: $value;
 }
-@mixin transform-origin ($value) {
+@mixin transform-origin($value) {
   -o-transform-origin: $value;
   -ms-transform-origin: $value;
   -webkit-transform-origin: $value;
   transform-origin: $value;
 }
-@mixin animation($name, $duration, $timing, $type){
+@mixin animation($name, $duration, $timing, $type) {
   -o-animation: $name $duration $timing $type;
   -moz-animation: $name $duration $timing $type;
   -webkit-animation: $name $duration $timing $type;
   animation: $name $duration $timing $type;
 }
-@mixin animation-delay($value){
+@mixin animation-delay($value) {
   -o-animation: $value;
   -moz-animation: $value;
   -webkit-animation: $value;
@@ -87,7 +96,7 @@
 
 // === Filters
 
-@mixin filter($value){
+@mixin filter($value) {
   -o-filter: $value;
   -ms-filter: $value;
   -webkit-filter: $value;
@@ -97,12 +106,12 @@
 
 // === Browser mods
 
-@mixin appearance($value){
+@mixin appearance($value) {
   -moz-appearance: $value;
   -webkit-appearance: $value;
   appearance: $value;
 }
-@mixin user-select($value){
+@mixin user-select($value) {
   -webkit-touch-callout: $value;
   -webkit-user-select: $value;
   -khtml-user-select: $value;
@@ -131,24 +140,23 @@ $right-width: 100% - $left-width;
   color: $h2-color;
 }
 
-
 ////////////////////////////
 //         Fonts          //
 ////////////////////////////
 
 @font-face {
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   src: url('../fonts/OpenSans-Light.ttf');
   font-weight: 300;
 }
 
 @font-face {
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   src: url('../fonts/OpenSans-Regular.ttf');
 }
 
 @font-face {
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   src: url('../fonts/OpenSans-SemiBold.ttf');
   font-weight: 600;
 }
@@ -160,19 +168,20 @@ $right-width: 100% - $left-width;
 * {
   @include box-sizing(border-box);
 }
-body, html, main {
+body,
+html,
+main {
   height: 100%;
 }
 body {
-  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 1400px;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   background-color: $side-bg-color;
 }
 a {
   @include transition(all 0.3s ease);
 }
-
-
-
 
 //////////////////////////
 //       Sidebar        //
@@ -206,8 +215,8 @@ a {
   &__border {
     outline: 1px solid $side-color;
     position: relative;
-    top: .4em;
-    left: .4em;
+    top: 0.4em;
+    left: 0.4em;
     height: 100%;
     width: 100%;
   }
@@ -215,7 +224,7 @@ a {
     font-size: 1.7rem;
     font-weight: normal;
     line-height: 1.3;
-    letter-spacing: .05em;
+    letter-spacing: 0.05em;
     padding: 1em 0;
   }
 }
@@ -224,7 +233,7 @@ a {
     list-style: none;
     line-height: 2.5;
     font-size: 1.2em;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
     text-align: right;
     padding-right: 4em;
     margin-bottom: 3em;
@@ -261,7 +270,7 @@ a {
     height: 4em;
     position: relative;
     top: 1.7em;
-    left: .5em;
+    left: 0.5em;
   }
   &__tel {
     font-size: 1.3em;
@@ -271,7 +280,7 @@ a {
 }
 .footer {
   text-align: center;
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 /////////////////////////
@@ -280,7 +289,7 @@ a {
 
 .intro {
   padding: 8em 10em 5em $left-width;
-  height: 100%; 
+  height: 100%;
   background-image: url('../images/header.jpg');
   // @include background-size(cover);
   background-position: center;
@@ -336,8 +345,8 @@ a {
     &-1 {
       outline: 1px solid $border-color;
       position: relative;
-      top: .6em;
-      left: .6em;
+      top: 0.6em;
+      left: 0.6em;
       height: 100%;
       width: 100%;
       padding: 1em 2em 2em;
@@ -348,8 +357,8 @@ a {
     text-align: center;
   }
   &__p {
-      color: $main-color;
-      line-height: 1.5;
+    color: $main-color;
+    line-height: 1.5;
   }
 }
 
@@ -364,8 +373,8 @@ a {
   &__description {
     outline: 1px solid $border-color;
     position: relative;
-    top: .4em;
-    left: .4em;
+    top: 0.4em;
+    left: 0.4em;
     width: 100%;
     height: 100%;
     padding: 1em 3em 2em;
@@ -388,7 +397,7 @@ a {
     border-bottom: 1px solid $border-color;
     font-size: 1em;
     color: $main-color;
-    padding: .5em;
+    padding: 0.5em;
     margin-bottom: 1em;
     &:focus {
       outline: none;
@@ -413,4 +422,3 @@ a {
     }
   }
 }
-
