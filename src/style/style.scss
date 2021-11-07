@@ -130,8 +130,8 @@ $side-color: #fff;
 $main-color: #333;
 $border-color: #bbb;
 $h2-color: #069;
-$left-width: 26%;
-$right-width: 100% - $left-width;
+$left-width: min(400px, max(300px, 25%));
+$right-width: max(calc(100% - 400px), min(75%, calc(100% - 300px)));
 
 %h2 {
   font-size: 1.4em;
@@ -174,8 +174,8 @@ main {
   height: 100%;
 }
 body {
-  margin: 0 auto;
-  max-width: 1400px;
+  // margin: 0 auto;
+  // max-width: 1400px;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   background-color: $side-bg-color;
 }
@@ -189,7 +189,7 @@ a {
 
 .sidebar {
   width: $left-width;
-  max-width: $left-width;
+  // max-width: $max-left-width;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -198,14 +198,13 @@ a {
   bottom: 0;
   left: 0;
   z-index: 100;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 0 1em 1em;
   color: $side-color;
 }
 .logo {
   &__box {
     margin: 0 2em 0 0;
-    padding: 2em 2em;
     width: 100%;
   }
   &__body {
@@ -230,22 +229,24 @@ a {
 }
 .nav {
   &__ul {
+    width: max-content;
+    margin: 0 auto;
+    padding-right: 1em;
     list-style: none;
     line-height: 2.5;
     font-size: 1.2em;
     letter-spacing: 0.1em;
     text-align: right;
-    padding-right: 4em;
-    margin-bottom: 3em;
   }
-  span {
+  &__span {
     @include transition(0.5s);
     position: relative;
-    padding-right: 1em;
+    padding-right: 1rem;
     text-transform: uppercase;
-  }
-  span:hover {
     cursor: pointer;
+  }
+  &__span:hover {
+    padding-left: 1rem;
     padding-right: 0;
     &:after {
       opacity: 1;
@@ -253,7 +254,7 @@ a {
       right: -1.5em;
     }
   }
-  span:after {
+  &__span:after {
     position: absolute;
     content: '\2BC8';
     opacity: 0;
@@ -262,15 +263,17 @@ a {
   }
 }
 .phone {
-  text-align: right;
-  padding-right: 6em;
-  margin-bottom: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-right: 1rem;
+
   &__img {
-    width: 4em;
-    height: 4em;
-    position: relative;
-    top: 1.7em;
-    left: 0.5em;
+    background: url('../images/phone.svg') center / cover;
+    margin-top: 0.3em;
+    width: 3em;
+    height: 3em;
   }
   &__tel {
     font-size: 1.3em;
@@ -291,14 +294,15 @@ a {
   padding: 8em 10em 5em $left-width;
   height: 100%;
   background-image: url('../images/header.jpg');
-  // @include background-size(cover);
+  @include background-size(cover);
   background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   &__block {
     max-width: 27em;
     margin: 0 0 auto auto;
     padding: 3em 2em 2em;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.7);
     border: 1px solid #fff;
   }
   &__h2 {
