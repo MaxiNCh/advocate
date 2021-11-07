@@ -42,9 +42,21 @@
     $gradient1,
     $gradient2
   ); /* Chrome 10+, Saf5.1+, iOS 5+ */
-  background-image: -moz-linear-gradient($angle, $gradient1, $gradient2); /* FF3.6 */
-  background-image: -ms-linear-gradient($angle, $gradient1, $gradient2); /* IE10 */
-  background-image: -o-linear-gradient($angle, $gradient1, $gradient2); /* Opera 11.10+ */
+  background-image: -moz-linear-gradient(
+    $angle,
+    $gradient1,
+    $gradient2
+  ); /* FF3.6 */
+  background-image: -ms-linear-gradient(
+    $angle,
+    $gradient1,
+    $gradient2
+  ); /* IE10 */
+  background-image: -o-linear-gradient(
+    $angle,
+    $gradient1,
+    $gradient2
+  ); /* Opera 11.10+ */
   background-image: linear-gradient($angle, $gradient1, $gradient2);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=$angle,StartColorStr='#{$gradient1}', EndColorStr='#{$gradient2}');
 }
@@ -124,14 +136,14 @@
 //      Variables & mixins       //
 ///////////////////////////////////
 
-$side-bg-color: #666;
+$side-bg-color: #fff;
 $main-bg-color: #fff;
 $side-color: #fff;
 $main-color: #333;
 $border-color: #bbb;
 $h2-color: #069;
-$left-width: min(400px, max(300px, 25%));
-$right-width: max(calc(100% - 400px), min(75%, calc(100% - 300px)));
+$left-width: min(400px, max(310px, 25%));
+$right-width: max(calc(100% - 400px), min(75%, calc(100% - 310px)));
 
 %h2 {
   font-size: 1.4em;
@@ -145,19 +157,19 @@ $right-width: max(calc(100% - 400px), min(75%, calc(100% - 300px)));
 ////////////////////////////
 
 @font-face {
-  font-family: 'Open Sans';
-  src: url('../fonts/OpenSans-Light.ttf');
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-Light.ttf");
   font-weight: 300;
 }
 
 @font-face {
-  font-family: 'Open Sans';
-  src: url('../fonts/OpenSans-Regular.ttf');
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-Regular.ttf");
 }
 
 @font-face {
-  font-family: 'Open Sans';
-  src: url('../fonts/OpenSans-SemiBold.ttf');
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-SemiBold.ttf");
   font-weight: 600;
 }
 
@@ -174,9 +186,7 @@ main {
   height: 100%;
 }
 body {
-  // margin: 0 auto;
-  // max-width: 1400px;
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
   background-color: $side-bg-color;
 }
 a {
@@ -189,7 +199,6 @@ a {
 
 .sidebar {
   width: $left-width;
-  // max-width: $max-left-width;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -198,35 +207,90 @@ a {
   bottom: 0;
   left: 0;
   z-index: 100;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 0 1em 1em;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2em 1em 1em;
   color: $side-color;
 }
+
 .logo {
   &__box {
-    margin: 0 2em 0 0;
+    position: relative;
+    margin-left: -0.2em;
     width: 100%;
-  }
-  &__body {
+    border: 1px solid $side-color;
     text-align: center;
-    outline: 1px solid $side-color;
   }
   &__border {
     outline: 1px solid $side-color;
-    position: relative;
+    position: absolute;
     top: 0.4em;
     left: 0.4em;
     height: 100%;
     width: 100%;
   }
   &__h1 {
-    font-size: 1.7rem;
+    font-size: 1rem;
     font-weight: normal;
-    line-height: 1.3;
+    line-height: 1.7;
     letter-spacing: 0.05em;
-    padding: 1em 0;
+    padding: 0.6em 0.2em 0.6em 0.5em;
   }
 }
+
+.contacts {
+  margin-top: 4em;
+  &__name {
+    margin-bottom: 0.5em;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1.4;
+  }
+}
+
+.phone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-right: 1rem;
+
+  &__img {
+    background: url("../images/phone.svg") center / cover;
+    margin-top: 0.4em;
+    width: 2.5em;
+    height: 2.5em;
+  }
+
+  &__tel {
+    font-size: 1.1em;
+    color: $side-color;
+    text-decoration: none;
+  }
+}
+
+.sidebar-email {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-right: 1rem;
+
+  &__img {
+    background: url("../images/mail.svg") no-repeat center / contain;
+    margin-top: 0.2em;
+    margin-right: 0.3em;
+    width: 2.5em;
+    height: 1.5em;
+    color: $side-color;
+  }
+
+  &__text {
+    font-size: 1.1em;
+    color: $side-color;
+    text-decoration: none;
+  }
+}
+
 .nav {
   &__ul {
     width: max-content;
@@ -256,31 +320,13 @@ a {
   }
   &__span:after {
     position: absolute;
-    content: '\2BC8';
+    content: "\2BC8";
     opacity: 0;
     right: -0.7em;
     @include transition(0.5s);
   }
 }
-.phone {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding-right: 1rem;
 
-  &__img {
-    background: url('../images/phone.svg') center / cover;
-    margin-top: 0.3em;
-    width: 3em;
-    height: 3em;
-  }
-  &__tel {
-    font-size: 1.3em;
-    color: $side-color;
-    text-decoration: none;
-  }
-}
 .footer {
   text-align: center;
   font-size: 0.9em;
@@ -293,7 +339,7 @@ a {
 .intro {
   padding: 8em 10em 5em $left-width;
   height: 100%;
-  background-image: url('../images/header.jpg');
+  background-image: url("../images/header.jpg");
   @include background-size(cover);
   background-position: center;
   background-repeat: no-repeat;
@@ -302,7 +348,7 @@ a {
     max-width: 27em;
     margin: 0 0 auto auto;
     padding: 3em 2em 2em;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid #fff;
   }
   &__h2 {
@@ -334,27 +380,36 @@ a {
     padding: 2em;
   }
   &__h2 {
+    padding-left: 2em;
+    line-height: 1.3;
     @extend %h2;
+    &_no-indent {
+      padding-left: 0;
+    }
   }
   &__p {
-    color: $main-color;
+    margin: 0;
     line-height: 1.5;
+    text-indent: 1.5em;
+    color: $main-color;
   }
 }
 
 .experience {
-  padding: 3em 15em;
+  margin: 3em auto;
+  width: 50%;
+  &__body {
+    position: relative;
+    border: 1px solid $border-color;
+    padding: 0.4em 0.2em 0 1.4em;
+  }
   &__border {
     outline: 1px solid $border-color;
-    &-1 {
-      outline: 1px solid $border-color;
-      position: relative;
-      top: 0.6em;
-      left: 0.6em;
-      height: 100%;
-      width: 100%;
-      padding: 1em 2em 2em;
-    }
+    position: absolute;
+    top: 0.6em;
+    left: 0.6em;
+    height: 100%;
+    width: 100%;
   }
   &__h2 {
     @extend %h2;
@@ -368,23 +423,28 @@ a {
 
 .message {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 4fr;
   padding: 5em;
+
+  &__description {
+    position: relative;
+    border: 1px solid $border-color;
+    margin: 1em 0 auto;
+    padding: 0 0 0 1em;
+  }
+
   &__border {
     outline: 1px solid $border-color;
-    margin: 2em 0 auto;
-  }
-  &__description {
-    outline: 1px solid $border-color;
-    position: relative;
+    position: absolute;
     top: 0.4em;
     left: 0.4em;
     width: 100%;
     height: 100%;
-    padding: 1em 3em 2em;
   }
+
   &__h2 {
     @extend %h2;
+    text-align: center;
   }
   &__p {
     color: $main-color;
@@ -420,7 +480,7 @@ a {
     transition: 0.3s;
     &:hover {
       cursor: pointer;
-      background-color: $side-bg-color;
+      background-color: $h2-color;
       color: $side-color;
       transition: 0.3s;
     }
