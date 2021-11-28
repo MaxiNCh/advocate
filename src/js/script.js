@@ -23,7 +23,6 @@ function onIntersect(entries, observer) {
 
             const targetNavItem = document.querySelector(`.nav__span[href="#${id}"`);
             targetNavItem.classList.add('nav__span_active');
-            break;
         }
     };
 }
@@ -31,6 +30,8 @@ function onIntersect(entries, observer) {
 window.addEventListener(
     'load',
     (event) => {
+
+        // Добавление динамической подсветки кнопок при прокрутке через обзервер
         const observer = new IntersectionObserver(onIntersect, {
             threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
         });
@@ -39,6 +40,14 @@ window.addEventListener(
         targets.forEach((target) => {
             observer.observe(target);
         });
+
+        // Нажатие кнопки для раскрытия 
+        const navBtn = document.querySelector('#nav-icon');
+        const navIntro = document.querySelector('.intro__nav');
+        navBtn.addEventListener('click', () => {
+            navBtn.classList.toggle('open');
+            navIntro.classList.toggle('intro__nav_open');
+        })
     },
     false
 );
