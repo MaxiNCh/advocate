@@ -8,49 +8,53 @@
 
   <body>
     <aside class="sidebar">
-      <div>
-        <div class="logo__box">
-          <div class="logo__border"></div>
-          <h1 class="logo__h1">
-            Коллегия адвокатов <br />
-            "Камский юридический центр" <br />
-            Республика Татарстан"
-          </h1>
+      <div class="sidebar__content">
+        <div>
+          <div class="logo__box">
+            <div class="logo__border"></div>
+            <h1 class="logo__h1">
+              Коллегия адвокатов <br />
+              "Камский юридический центр" <br />
+              Республика Татарстан"
+            </h1>
+          </div>
+
+          <div class="contacts">
+            <div class="contacts__name">
+              Заборонкин<br />Валериий&nbsp;Владимирович
+            </div>
+            <div class="phone">
+              <div class="phone__img"></div>
+              <a href="tel:+7-111-654-32-10" class="phone__tel"
+                >+7-987-654-32-10</a
+              >
+            </div>
+            <div class="sidebar-email">
+              <div class="sidebar-email__img"></div>
+              <a href="mailto: z-val@yandex.ru" class="sidebar-email__text"
+                >z-val@yandex.ru</a
+              >
+            </div>
+          </div>
         </div>
 
-        <div class="contacts">
-          <div class="contacts__name">
-            Заборонкин<br />Валериий&nbsp;Владимирович
-          </div>
-          <div class="phone">
-            <div class="phone__img"></div>
-            <a href="tel:+7-111-654-32-10" class="phone__tel"
-              >+7-987-654-32-10</a
-            >
-          </div>
-          <div class="sidebar-email">
-            <div class="sidebar-email__img"></div>
-            <a href="mailto: z-val@yandex.ru" class="sidebar-email__text"
-              >z-val@yandex.ru</a
-            >
-          </div>
-        </div>
+        <nav class="nav">
+          <ul class="nav__ul">
+            <li class="nav__li"><a href="#intro" class="nav__span">Начало</a></li>
+            <li class="nav__li"><a href="#service" class="nav__span">Услуги</a></li>
+            <li class="nav__li"><a href="#experience" class="nav__span">Наш опыт</a></li>
+            <li class="nav__li">
+              <a href="#message" class="nav__span">Задать вопрос</a>
+            </li>
+            <li class="nav__li"><a href="#contacts" class="nav__span">Контакты</a></li>
+          </ul>
+        </nav>
+
+        <footer class="footer">Copyright 2021 Advocate</footer>
       </div>
-
-      <nav class="nav">
-        <ul class="nav__ul">
-          <li class="nav__li"><span class="nav__span">Начало</span></li>
-          <li class="nav__li"><span class="nav__span">Услуги</span></li>
-          <li class="nav__li"><span class="nav__span">Наш опыт</span></li>
-          <li class="nav__li"><span class="nav__span">Задать вопрос</span></li>
-          <li class="nav__li"><span class="nav__span">Контакты</span></li>
-        </ul>
-      </nav>
-
-      <footer class="footer">Copyright 2021 Advocate</footer>
     </aside>
     <main>
-      <div class="intro">
+      <div id="intro" class="intro observe">
         <div class="intro__block">
           <h2 class="intro__h2">Юридическая консультация</h2>
           <p class="intro__p">
@@ -62,7 +66,7 @@
         </div>
       </div>
       <section class="section">
-        <div class="service">
+        <div id="service" class="service observe">
           <article class="service__division">
             <h2 class="service__h2">Арбитражные споры</h2>
             <p class="service__p">
@@ -194,7 +198,7 @@
         </div>
       </section>
       <section class="section">
-        <article class="experience">
+        <article id="experience" class="experience observe">
           <div class="experience__body">
             <div class="experience__border"></div>
             <h2 class="experience__h2">О нас</h2>
@@ -215,7 +219,7 @@
         </article>
       </section>
       <section class="section">
-        <div class="message">
+        <div id="message" class="message observe">
           <div class="message__description">
             <div class="message__border"></div>
             <h2 class="message__h2">Ваш вопрос</h2>
@@ -255,6 +259,8 @@
           </form>
         </div>
       </section>
+      <!-- <section id="contacts" class="section observe" style="height: 200px; background: grey"></section> -->
+      <div class="invisible-footer"></div>
     </main>
   </body>
 </html>
