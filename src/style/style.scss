@@ -344,7 +344,7 @@ a {
 
     &:after {
       position: absolute;
-      content: '\2BC8';
+      content: '⯈';
       opacity: 0;
       right: -0.7em;
       @include transition(0.5s);
@@ -384,7 +384,7 @@ a {
   padding: 8em 10em 5em $left-width;
   height: 100%;
   background-image: url('../images/header.jpg');
-  @include background-size(cover);
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -480,17 +480,21 @@ a {
   }
 
   @media screen and (max-width: 600px) {
-    height: initial;
+    height: auto;
+
     &__header {
       display: block;
       padding: 1em 1em 1.5em;
     }
+
     &__logo__box {
       margin: 0 auto 2em;
     }
+
     &__contacts {
       margin-top: 1em;
     }
+
     &__nav {
       text-align: center;
       height: 0;
@@ -506,6 +510,7 @@ a {
         height: 200px;
       }
     }
+
     #nav-icon {
       display: block;
       width: 32px;
@@ -580,7 +585,11 @@ a {
       width: 0%;
       left: 50%;
     }
-    
+
+    &__block {
+      width: 85%;
+      padding: 1.5em;
+    }
   }
 }
 
@@ -734,7 +743,7 @@ a {
 
   @media screen and (max-width: 600px) {
     &__description {
-      width: 70%;
+      width: 80%;
     }
     &__form {
       width: 100%;
@@ -742,6 +751,44 @@ a {
   }
 }
 
+.address {
+  display: flex;
+  padding: 1em 2em;
+
+  &__map {
+    height: 400px;
+    width: 60%;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    padding-bottom: 4em;
+    padding-left: 1em;
+    text-align: center;
+    line-height: 1.5;
+  }
+  &__h2 {
+    @extend %h2;
+  }
+
+  @media screen and (max-width: 900px) {
+    flex-wrap: wrap-reverse;
+
+    &__map {
+      width: 100%;
+    }
+
+    &__text {
+      width: 100%;
+      padding: 0 1em 2em;
+    }
+  }
+
+}
+
 .invisible-footer {
-  height: 20px;
+  height: 4em;
 }
