@@ -345,9 +345,11 @@ a {
 
     &:after {
       position: absolute;
-      content: '\2BC8';
+      content: '\2023';
       opacity: 0;
-      right: -0.7em;
+      right: -0.1em;
+      bottom: -0.92em;
+      font-size: 2.5em;
       @include transition(0.5s);
     }
 
@@ -357,7 +359,7 @@ a {
       &:after {
         opacity: 1;
         @include transition(0.5s);
-        right: -1.5em;
+        right: -0.6em;
       }
     }
   }
@@ -367,7 +369,7 @@ a {
     &:after {
       opacity: 1;
       @include transition(0.5s);
-      right: -1.5em;
+      right: -0.6em;
     }
   }
 }
