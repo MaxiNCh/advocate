@@ -345,7 +345,7 @@ a {
 
     &:after {
       position: absolute;
-      content: '⯈';
+      content: '\2BC8';
       opacity: 0;
       right: -0.7em;
       @include transition(0.5s);
